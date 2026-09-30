@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Acessa+ — encontre lugares considerando suas necessidades de acessibilidade.">
+  <meta name="theme-color" content="#0B5CAB">
+  <title>Acessa+ | Lugares acessíveis</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <button class="brand" type="button" data-view="home" aria-label="Ir para a página inicial">
+        <span class="brand-mark" aria-hidden="true"><img src="assets/logo-mark.png" alt=""></span>
+        <span class="brand-name">Acessa<span class="brand-plus">+</span></span>
+      </button>
+
+      <nav class="main-nav" aria-label="Navegação principal">
+        <button type="button" data-view="home">Início</button>
+        <button type="button" data-view="explore">Explorar</button>
+        <button type="button" data-view="submit">Cadastrar local</button>
+      </nav>
+
+      <div class="header-actions">
+        <button class="access-menu-button" id="access-menu-toggle" type="button" aria-expanded="false" aria-controls="accessibility-panel">
+          <span aria-hidden="true">◒</span>
+          Acessibilidade
+        </button>
+        <div class="accessibility-panel" id="accessibility-panel" hidden>
+          <div class="access-panel-title">
+            <div>
+              <strong>Preferências de acessibilidade</strong>
+              <span>Estas opções alteram somente a interface.</span>
+            </div>
+            <button class="icon-button small" id="access-menu-close" type="button" aria-label="Fechar opções de acessibilidade">×</button>
+          </div>
+
+          <div class="access-control-grid">
+            <div class="access-control">
+              <span class="control-label">Tamanho do texto</span>
+              <div class="control-buttons">
+                <button class="icon-button" id="decrease-font" type="button">A−</button>
+                <button class="icon-button" id="reset-font" type="button">A</button>
+                <button class="icon-button" id="increase-font" type="button">A+</button>
+              </div>
+            </div>
+
+            <label class="toggle-row"><input id="contrast-toggle" type="checkbox"><span>Alto contraste</span></label>
+            <label class="toggle-row"><input id="text-contrast-toggle" type="checkbox"><span>Contraste reforçado no texto</span></label>
+            <label class="toggle-row"><input id="grayscale-toggle" type="checkbox"><span>Preto e branco</span></label>
+            <label class="toggle-row"><input id="links-toggle" type="checkbox"><span>Sublinhar links e ações</span></label>
+            <label class="toggle-row"><input id="motion-toggle" type="checkbox"><span>Reduzir animações</span></label>
+          </div>
+
+          <div class="color-vision">
+            <span class="control-label">Modo para daltonismo</span>
+            <div class="vision-buttons" role="group" aria-label="Modo para daltonismo">
+              <button type="button" data-vision="normal" class="vision-button active">Normal</button>
+              <button type="button" data-vision="protanopia" class="vision-button">Protanopia</button>
+              <button type="button" data-vision="deuteranopia" class="vision-button">Deuteranopia</button>
+              <button type="button" data-vision="tritanopia" class="vision-button">Tritanopia</button>
+            </div>
+            <small>Modos visuais adaptados para melhorar a distinção de elementos coloridos.</small>
+          </div>
+
+          <button class="secondary-button full-width" id="reset-accessibility" type="button">Restaurar preferências</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="conteudo">
+    <section id="view-home" class="view active-view" aria-labelledby="home-title">
+      <div class="hero-accent" aria-hidden="true"></div>
+      <div class="container hero-grid">
+        <div class="hero-copy reveal">
+          <div class="hero-brand" aria-hidden="true">
+            <img src="assets/acessa-logo.png" alt="">
+          </div>
+          <p class="eyebrow">Informação para escolher com autonomia</p>
+          <h1 id="home-title">Encontre lugares que funcionam para você.</h1>
+          <p class="hero-text">Pesquise estabelecimentos e veja, em um só lugar, os recursos de acessibilidade disponíveis e as informações compartilhadas pela comunidade.</p>
+          <form id="hero-search-form" class="search-bar" role="search">
+            <label class="sr-only" for="hero-search">Pesquisar local</label>
+            <span class="search-icon" aria-hidden="true">⌕</span>
+            <input id="hero-search" name="q" type="search" placeholder="Ex.: restaurante, cinema, shopping..." autocomplete="off">
+            <button class="primary-button" type="submit">Pesquisar</button>
+          </form>
+          <div class="quick-filters" aria-label="Filtros rápidos">
+            <button type="button" data-quick-filter="mobilidade">♿ Mobilidade</button>
+            <button type="button" data-quick-filter="visual">🦯 Visual</button>
+            <button type="button" data-quick-filter="auditiva">🦻 Auditiva</button>
+            <button type="button" data-quick-filter="cognitiva">🧠 Cognitiva</button>
+          </div>
+        </div>
+
+        <aside class="hero-panel reveal reveal-delay" aria-label="Resumo do projeto">
+          <div class="hero-panel-top">
+            <div class="panel-icon" aria-hidden="true">♿</div>
+            <span class="institutional-chip">Plataforma de acessibilidade</span>
+          </div>
+          <h2>Uma busca mais objetiva</h2>
+          <p>Em vez de apenas dizer “é acessível”, o Acessa+ apresenta <strong>quais recursos existem</strong>, o que precisa ser confirmado e o que outras pessoas relataram.</p>
+          <div class="status-legend">
+            <span><i class="dot confirmed"></i> Confirmado</span>
+            <span><i class="dot community"></i> Comunidade</span>
+            <span><i class="dot pending"></i> Não verificado</span>
+          </div>
+          <div class="hero-metrics">
+            <div><strong>18</strong><span>locais no protótipo</span></div>
+            <div><strong>6+</strong><span>recursos de acessibilidade</span></div>
+          </div>
+        </aside>
+      </div>
+
+      <div class="container section-spacing">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Descubra</p>
+            <h2>Locais em destaque</h2>
+          </div>
+          <button class="text-button" type="button" data-view="explore">Ver todos</button>
+        </div>
+        <div id="featured-grid" class="card-grid"></div>
+      </div>
+
+      <div class="container info-strip reveal">
+        <div class="info-strip-icon" aria-hidden="true">✓</div>
+        <div>
+          <strong>Acessibilidade precisa ser específica.</strong>
+          <p>O objetivo do Acessa+ é ajudar cada pessoa a entender se um local atende às suas necessidades antes de sair de casa.</p>
+        </div>
+        <button class="text-button" type="button" data-view="submit">Contribuir com informações →</button>
+      </div>
+    </section>
+
+    <section id="view-explore" class="view" aria-labelledby="explore-title" hidden>
+      <div class="container section-spacing">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Explorar</p>
+            <h1 id="explore-title">Encontre um lugar</h1>
+            <p class="muted">Pesquise e combine quantos filtros precisar.</p>
+          </div>
+        </div>
+
+        <div class="filter-layout">
+          <aside class="filter-panel" aria-label="Filtros de busca">
+            <div class="filter-head">
+              <div>
+                <span class="panel-kicker">Filtros</span>
+                <h2>Refine sua busca</h2>
+              </div>
+              <button class="text-button" id="clear-filters" type="button">Limpar</button>
+            </div>
+
+            <label for="explore-search">Buscar por local</label>
+            <input id="explore-search" type="search" placeholder="Nome, categoria ou bairro">
+
+            <fieldset>
+              <legend>Necessidade</legend>
+              <label class="check-row"><input type="checkbox" value="mobilidade" data-access-filter> Mobilidade ♿</label>
+              <label class="check-row"><input type="checkbox" value="visual" data-access-filter> Visual 🦯</label>
+              <label class="check-row"><input type="checkbox" value="auditiva" data-access-filter> Auditiva 🦻</label>
+              <label class="check-row"><input type="checkbox" value="cognitiva" data-access-filter> Cognitiva 🧠</label>
+            </fieldset>
+
+            <fieldset>
+              <legend>Recursos específicos</legend>
+              <label class="check-row"><input type="checkbox" value="entrada" data-feature-filter> Entrada acessível</label>
+              <label class="check-row"><input type="checkbox" value="banheiro" data-feature-filter> Banheiro adaptado</label>
+              <label class="check-row"><input type="checkbox" value="elevador" data-feature-filter> Elevador</label>
+              <label class="check-row"><input type="checkbox" value="vaga" data-feature-filter> Vaga acessível</label>
+              <label class="check-row"><input type="checkbox" value="piso_tatil" data-feature-filter> Piso tátil</label>
+              <label class="check-row"><input type="checkbox" value="libras" data-feature-filter> Atendimento em Libras</label>
+              <label class="check-row"><input type="checkbox" value="audiodescricao" data-feature-filter> Audiodescrição</label>
+              <label class="check-row"><input type="checkbox" value="sinalizacao" data-feature-filter> Sinalização acessível</label>
+              <label class="check-row"><input type="checkbox" value="ambiente_calmo" data-feature-filter> Ambiente calmo</label>
+              <label class="check-row"><input type="checkbox" value="cardapio_acessivel" data-feature-filter> Cardápio acessível</label>
+            </fieldset>
+          </aside>
+
+          <div class="results-column">
+            <div class="results-meta"><span id="results-count">0 locais</span><span>Dados demonstrativos para o protótipo</span></div>
+            <div id="results-grid" class="card-grid"></div>
+            <div id="empty-state" class="empty-state" hidden>
+              <div class="empty-icon" aria-hidden="true">⌕</div>
+              <h2>Nenhum local encontrado</h2>
+              <p>Tente remover algum filtro ou procurar por outro termo.</p>
+              <button class="primary-button" type="button" id="reset-from-empty">Limpar filtros</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="view-detail" class="view" aria-labelledby="detail-title" hidden>
+      <div class="container section-spacing">
+        <button class="back-button" type="button" data-view="explore">← Voltar para resultados</button>
+        <div id="detail-content"></div>
+      </div>
+    </section>
+
+    <section id="view-submit" class="view" aria-labelledby="submit-title" hidden>
+      <div class="container narrow section-spacing">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Participação</p>
+            <h1 id="submit-title">Cadastre um novo local</h1>
+            <p class="muted">Ajude a ampliar o catálogo com informações que podem orientar outras pessoas.</p>
+          </div>
+        </div>
+
+        <form id="submit-form" class="form-card">
+          <div class="form-grid">
+            <div class="field full"><label for="place-name">Nome do estabelecimento</label><input id="place-name" name="name" required></div>
+            <div class="field"><label for="place-category">Categoria</label><select id="place-category" name="category" required><option value="">Selecione</option><option>Restaurante</option><option>Cinema</option><option>Shopping</option><option>Escola</option><option>Hospital</option><option>Loja</option><option>Biblioteca</option><option>Parque</option><option>Serviço público</option><option>Outro</option></select></div>
+            <div class="field"><label for="place-neighborhood">Bairro</label><input id="place-neighborhood" name="neighborhood" required></div>
+            <div class="field full"><label for="place-address">Endereço</label><input id="place-address" name="address" required></div>
+          </div>
+
+          <fieldset>
+            <legend>Recursos de acessibilidade disponíveis</legend>
+            <div class="feature-grid">
+              <label class="check-row"><input type="checkbox" name="features" value="entrada"> Entrada acessível</label>
+              <label class="check-row"><input type="checkbox" name="features" value="banheiro"> Banheiro adaptado</label>
+              <label class="check-row"><input type="checkbox" name="features" value="elevador"> Elevador</label>
+              <label class="check-row"><input type="checkbox" name="features" value="vaga"> Vaga acessível</label>
+              <label class="check-row"><input type="checkbox" name="features" value="piso_tatil"> Piso tátil</label>
+              <label class="check-row"><input type="checkbox" name="features" value="libras"> Atendimento em Libras</label>
+              <label class="check-row"><input type="checkbox" name="features" value="audiodescricao"> Audiodescrição</label>
+              <label class="check-row"><input type="checkbox" name="features" value="sinalizacao"> Sinalização acessível</label>
+              <label class="check-row"><input type="checkbox" name="features" value="ambiente_calmo"> Ambiente calmo</label>
+              <label class="check-row"><input type="checkbox" name="features" value="cardapio_acessivel"> Cardápio acessível</label>
+            </div>
+          </fieldset>
+
+          <div class="field full"><label for="place-notes">Observações</label><textarea id="place-notes" name="notes" rows="4" placeholder="Conte algo que pode ser útil para outra pessoa."></textarea></div>
+          <div class="form-actions"><button class="secondary-button" type="reset">Limpar</button><button class="primary-button" type="submit">Enviar cadastro</button></div>
+          <p id="submit-feedback" class="feedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+
+    <section id="view-rate" class="view" aria-labelledby="rate-title" hidden>
+      <div class="container narrow section-spacing">
+        <button class="back-button" type="button" data-view="detail">← Voltar para o local</button>
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Sua experiência</p>
+            <h1 id="rate-title">Avalie o local</h1>
+            <p id="rate-subtitle" class="muted"></p>
+          </div>
+        </div>
+
+        <form id="rate-form" class="form-card">
+          <fieldset>
+            <legend>Como foi a experiência?</legend>
+            <div class="rating-options">
+              <label><input type="radio" name="rating" value="5" required><span>5 ★</span></label>
+              <label><input type="radio" name="rating" value="4"><span>4 ★</span></label>
+              <label><input type="radio" name="rating" value="3"><span>3 ★</span></label>
+              <label><input type="radio" name="rating" value="2"><span>2 ★</span></label>
+              <label><input type="radio" name="rating" value="1"><span>1 ★</span></label>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>O que você encontrou?</legend>
+            <div class="feature-grid">
+              <label class="check-row"><input type="checkbox" name="visitedFeatures" value="entrada"> Entrada acessível</label>
+              <label class="check-row"><input type="checkbox" name="visitedFeatures" value="banheiro"> Banheiro adaptado</label>
+              <label class="check-row"><input type="checkbox" name="visitedFeatures" value="elevador"> Elevador</label>
+              <label class="check-row"><input type="checkbox" name="visitedFeatures" value="vaga"> Vaga acessível</label>
+              <label class="check-row"><input type="checkbox" name="visitedFeatures" value="piso_tatil"> Piso tátil</label>
+              <label class="check-row"><input type="checkbox" name="visitedFeatures" value="libras"> Atendimento em Libras</label>
+              <label class="check-row"><input type="checkbox" name="visitedFeatures" value="audiodescricao"> Audiodescrição</label>
+              <label class="check-row"><input type="checkbox" name="visitedFeatures" value="sinalizacao"> Sinalização acessível</label>
+              <label class="check-row"><input type="checkbox" name="visitedFeatures" value="ambiente_calmo"> Ambiente calmo</label>
+              <label class="check-row"><input type="checkbox" name="visitedFeatures" value="cardapio_acessivel"> Cardápio acessível</label>
+            </div>
+          </fieldset>
+
+          <div class="field full"><label for="rate-comment">Comentário</label><textarea id="rate-comment" name="comment" rows="5" required placeholder="Compartilhe uma informação prática sobre sua visita."></textarea></div>
+          <div class="form-actions"><button class="secondary-button" type="button" data-view="detail">Cancelar</button><button class="primary-button" type="submit">Publicar avaliação</button></div>
+          <p id="rate-feedback" class="feedback" role="status" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand">
+        <img src="assets/acessa-logo.png" alt="Acessa+">
+        <p>Protótipo acadêmico para o Eureca.</p>
+      </div>
+      <div class="footer-note">
+        <strong>Informação responsável</strong>
+        <p>Os dados exibidos nesta versão são demonstrativos. Recursos de acessibilidade devem ser confirmados antes da visita.</p>
+      </div>
+    </div>
+  </footer>
+
+  <dialog id="toast-dialog" class="toast-dialog" aria-live="polite"><p id="toast-message"></p><button class="icon-button" id="toast-close" type="button" aria-label="Fechar aviso">×</button></dialog>
+
+  <script src="data/locais.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
